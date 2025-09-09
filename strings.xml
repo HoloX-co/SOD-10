@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HoloX Firestick Demo</string>
+    <string name="app_title">Welcome to HoloX!</string>
+    <string name="title_description">Main title of the HoloX app</string>
+    <string name="play_button">▶ Play Video</string>
+    <string name="play_button_description">Play video button</string>
+    <string name="info_button">ℹ Show Info</string>
+    <string name="info_button_description">Show HoloX info button</string>
+    <string name="video_player_description">Video player view</string>
+    <string name="play_clicked">Playing video!</string>
+    <string name="info_title">About HoloX</string>
+    <string name="info_message">HoloX believes in the power of collaboration! This demo showcases a Firestick-optimized app for streaming content.</string>
+</resources>
