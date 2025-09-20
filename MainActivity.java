@@ -2,6 +2,7 @@ package com.holox.firestickdemo;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,6 +53,33 @@ public class MainActivity extends AppCompatActivity {
             infoBtn.setOnFocusChangeListener((v, hasFocus) -> {
                 v.setBackgroundColor(getResources().getColor(hasFocus ? R.color.focused_button : R.color.default_button));
             });
+        }
+    }
+
+    // D-pad navigation handling for Firestick remote
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER) {
+            // Remote SELECT button - toggle play/pause
+            if (player != null) {
+                if (player.isPlaying()) {
+                    player.pause();
+                    Toast.makeText(this, "Video Paused", Toast.LENGTH_SHORT).show();
+                } else {
+                    player.play();
+                    Toast.makeText(this, R.string.play_clicked, Toast.LENGTH_SHORT).show();
+                }
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (player != null) {
+            player.setPlayWhenReady(true); // Auto-play when app starts
         }
     }
 
